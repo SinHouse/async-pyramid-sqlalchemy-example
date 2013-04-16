@@ -1,19 +1,26 @@
-Async, non-blocking Flask & SQLAlchemy example
-==============================================
+Async, non-blocking Pyramid & SQLAlchemy example
+================================================
+
+Original version using Flask instead of Pyramid:
+https://github.com/kljensen/async-flask-sqlalchemy-example
+
+(I adapted this README poorly; some comments still refer to the Flask version,
+but are helpful, so I kept them.)
+
 
 ## Overview
 
 This code shows how to use the following menagerie of compontents
 together in a completely non-blocking manner:
 
-* [Flask](http://flask.pocoo.org/), for the web application framework;
-* [SQLAlchemy](http://www.sqlalchemy.org/), for the object relational mapper (via [Flask-SQLAlchemy](https://github.com/mitsuhiko/flask-sqlalchemy));
+* [Pyramid](http://docs.pylonsproject.org/projects/pyramid/en/latest/), for the web application framework;
+* [SQLAlchemy](http://www.sqlalchemy.org/), for the object relational mapper;
 * [Postgresql](http://www.postgresql.org/), for the database;
 * [Psycopg2](http://initd.org/psycopg/), for the SQLAlchemy-Postgresql adapter;
 * [Gunicorn](http://gunicorn.org/), for the WSGI server; and,
 * [Gevent](http://www.gevent.org/), for the networking library.
 
-The file `server.py` defines a small Flask application that has
+The file `server.py` defines a small Pyramid application that has
 two routes: one that triggers a `time.sleep(5)` in Python and one that
 triggers a `pg_sleep(5)` in Postgres.  Both of these sleeps are normally
 blocking operations.  By running the server using the Gevent
@@ -27,7 +34,7 @@ can make the Postgres sleep non-blocking.
 
 Clone the repo:
 
-	git clone https://github.com/kljensen/async-flask-sqlalchemy-example.git
+	git clone https://github.com/hellp/async-pyramid-sqlalchemy-example.git
 
 Install the requirements
 
@@ -177,7 +184,7 @@ Stuff gets faster, shizzle works fine.  Your mileage may vary in production.
 
 ## License (MIT)
 
-Copyright (c) 2013 Kyle L. Jensen (kljensen@gmail.com)
+Copyright (c) 2013 Kyle L. Jensen (kljensen@gmail.com), Fabian Neumann
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
